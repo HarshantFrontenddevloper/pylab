@@ -1,0 +1,860 @@
+10th April 2024
+
+two type of functions
+
+1 Built-in [ len, sum ,max min,etc]
+2 user defined function [UDF]
+
+synatax:
+
+   def function_name([parameter list]):
+          statements
+          [retutn]
+
+[] - optional
+
+# in oter languages, functipon return only one value .
+# in python ,can return more than one value 
+
+lab1:
+
+def addtwo(x,y):
+    return x+y
+ 
+a=int(input("Enter value for a "))
+b=int(input("Enter value for b "))
+print("Sum    =" , addtwo(a,b))
+=============================================================
+def my_function(country = "Norway"):
+    print("I am from " + country)
+ 
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")
+===========================================================
+
+lambda functions:
+
+1 with name : synonmous function, with key word def
+
+2 without name :Anonymous function , lamda function
+
+
+    lambda
+
+        lambda(parameters list : expression )
+        one-line function . Light function. used to call only once.
+        no return statement.
+========================================================================
+
+map function:
+
+    map(fn , iterable) #iterable means , list ,tuple ,sequence , dic
+    
+     map function applies fn to each element of iterable and returns map object 
+
+
+
+    marks = [ 28,30,36,38,40,90]
+   
+    Question : add 2 to each element of marks and these elements after adding must be                    placed in new ist called remarks.
+
+
+method:1 
+
+       marks = [ 28,30,36,38,40,90]
+       remarks=[]
+       for i in marks:
+           x=i+2
+           newnarjs.append(x)
+       print(marks)
+       print(remarks)
+
+
+
+method 2: uaing def
+
+def add2(x):
+    return x+2
+ 
+marks=[28,30,36,38,40,90]
+newmarks=map(add2 , marks)
+print(marks)
+print(newmarks)
+print(list(newmarks))
+
+===============================================
+
+using lambda function
+
+marks=[28,30,36,38,40,90]
+newmarks=map(lambda x : x+2, marks)
+print(marks)
+print(newmarks)
+print(list(newmarks))
+
+=============================================
+filter function:
+
+  filter(fn,iterable)
+    fn - UDF, lambda function
+
+  filter function apply fn to each element of iterable and returns the element if cindition is true, ifnored oterwise 
+
+marks=[28,36,40,50,12,60,80,9]
+
+create new list passmarks,having elements 50 and above
+
+marks=[28,36,40,50,12,60,80,9]
+passlist=filter(lambda x: x>=50, marks)
+print(marks)
+print(list(passlist))
+
+def pcond(x):
+    if x >=50:
+       return x
+ 
+marks=[28,36,40,50,12,60,80,9]
+passlist=filter(pcond , marks)
+print(marks)
+print(list(passlist))
+
+
+ ============================================================
+x[1,2,3,4,5,6,7,8,9,10]
+create two list xeven and xodd, contains evennos and oddnos respectively
+
+try using UDF and lambda function 
+ 
+  
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Using lambda function to filter even and odd numbers
+xeven = list(filter(lambda x: x % 2 == 0, x))
+xodd = list(filter(lambda x: x % 2 != 0, x))
+
+print("Evennos:", xeven)
+print("Oddnos:", xodd)
+
+#using def function 
+
+ def even(x):
+    if x%2==0:
+       return x
+
+ def odd(x):
+    if x%!==0:
+       return x
+
+
+
+
+===========================================================
+Write a Python program to filter a given list to determine if the values in the list have a length of 6 using Lambda.
+ 
+# Create a list 'weekdays' containing the names of the days of the week
+ 
+weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+ 
+# Use the 'filter()' function with a lambda function to filter days with a length of 6 characters
+# The lambda function checks the length of each day and keeps only the days with a length of 6
+# Empty strings ('') are filtered out to keep only days with a length of 6 characters
+ 
+prgram
+
+
+# Create a list 'weekdays' containing the names of the days of the week
+weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+# Use the 'filter()' function with a lambda function to filter days with a length of 6 characters
+# The lambda function checks the length of each day and keeps only the days with a length of 6
+# Empty strings ('') are filtered out to keep only days with a length of 6 characters
+filtered_weekdays = list(filter(lambda day: len(day) == 6, weekdays))
+
+print("Weekdays with length 6:", filtered_weekdays)
+========================================================================
+
+
+
+
+
+
+
+celcius=[23,25,28,30,35,40,44,45]
+ 
+create new list fahren that contains temp in fahren , which are 100 and above.
+ 
+fah=cel*1.8+32
+
+
+
+celsius = [23, 25, 28, 30, 35, 40, 44, 45]
+fah = [cel * 1.8 + 32 ]
+fahabove100 = [temp for temp in fah if temp >= 100]
+
+print("Temperatures in Fahrenheit 100 and above:", fahabove100)
+
+
+===================================================================
+
+dictionary
+
+data is represented in the form of key value pairs
+
+passNo----> Name
+vec
+
+# program 
+
+staff={ "Name":"Doss","Age":45, "location": "banglore"}
+print(type(staff))
+
+
+staff={"Name":"Doss", "Age":45 , "location":"Bangalore" }
+print(type(staff))
+# print only  keys
+for i in staff:
+    print(i)
+print("Printing only values \n")  # one line space
+for i in staff.values():
+    print(i)
+print("Printing key and values  \n")  # one line space
+for i in staff.items():
+    print(i)
+ 
+print("Printing key and values  \n")  # one line space
+for k,v in staff.items():
+    print(k,'------>', v)
+ 
+======================================================================
+
+Write a Python script to check whether a given key already exists in a dictionary using a function
+ 
+# Create a dictionary 'd' with key-value pairs.
+ 
+ 
+d = {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+ 
+ 
+def isItExists(x):
+ 
+# Create a dictionary 'd' with key-value pairs.
+d = {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+
+# Define a function to check if a key exists in the dictionary
+def isItExists(x):
+    return x in d
+
+# Example usage
+key_to_check = 3
+if isItExists(key_to_check):
+    print(f"The key {key_to_check} exists in the dictionary.")
+else:
+    print(f"The key {key_to_check} does not exist in the dictionary.")
+==============================================
+d = {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+def is_key_present(x):
+    if x in d:
+       print(x, ' Key is present in the dictionary')
+    else:
+       print(x, ' Key is not present in the dictionary')
+ 
+is_key_present(5)
+is_key_present(9) 
+
+
+================================================================
+
+
+staff={"A":34 , "B":45 ,"C":56 , "D": 43 }
+print sum of ages and average age
+staff = {"A": 34, "B": 45, "C": 56, "D": 43}
+sum_of_ages = sum(staff.values())
+average_age = sum_of_ages / len(staff)
+
+print("Sum of ages:", sum_of_ages)
+print("Average age:", average_age)
+
+
+remove key from ther dictionary 
+
+
+myDict = {"a":1, "b":2, "c":3, "d":4}
+ 
+def deleteEle(target):
+    for i in myDict.keys():
+        if i == target:
+            del myDict[i]
+            return
+ 
+deleteEle("a")
+print(myDict)
+
+
+=================================
+# Create a dictionary 'my_dict' with key-value pairs.
+ 
+my_dict = {'data1': 100, 'data2': -54, 'data3': 247}
+ 
+# Use the 'sum' function to calculate the sum of all values in the 'my_dict' dictionary.
+# 'my_dict.values()' extracts the values from the dictionary, and 'sum' calculates their sum.
+ 
+result = sum(my_dict.values())
+ 
+# Print the result, which is the sum of the values.
+ 
+print(result) 
+
+
+my_dict = {'data1': 100, 'data2': -54, 'data3': 247}
+result = sum(my_dict.values())
+print(result)
+
+
+ums = [2, 4, -6, -9, 11, -12, 14, -5, 17]
+positive_sum = sum(filter(lambda x: x > 0, nums))
+negative_sum = sum(filter(lambda x: x < 0, nums))
+print("Sum of positive numbers:", positive_sum)
+print("Sum of negative numbers:", negative_sum)
+ 
+
+max and min dict value
+
+my_dict = {'x': 500, 'y': 5874, 'z': 560}
+ 
+print("max: ", max(my_dict.values()))
+print("min: ", min(my_dict.values()))
+=============================================================
+
+counter function 
+
+from collections import Counter
+  
+# Create a list
+z = ['blue', 'red', 'blue', 'yellow', 'blue', 'red']
+col_count = Counter(z)
+print(col_count)
+
+
+dict1 = {'c1': 'Red', 'c2': 'Green', 'c3': None}
+for key,value in dict1.items():
+        if value==None:
+                del(key,value)
+        else:
+                print(key)
+                print(value)
+=========================================================================
+
+list comprehension
+[<expression> for item in list if <conditonal>]
+
+lis=[x for x in range(1,10) if x % 2 == 0]
+print(lis)
+
+===================================
+y={x: x**2 for x in (2, 4, 6)}
+
+print(y)
+
+
+==========================
+prTICE
+
+
+print(not 0)
+print(not 10)
+print(not None)
+print(not '')
+print(not 'durga')
+
+
+
+=======================================
+PYTHON SRTING FORMATTING
+
+price = 49
+txt = "The price is {} dollars"
+print(txt.format(price))
+
+price = 49
+
+txt = "The price is {:.2f} dollars"
+
+print(txt.format(price))
+
+
+
+========================================================
+index numbers:
+
+we can use index numbers ( a number inside 
+
+
+quantity = 3
+itemno = 567
+price = 49
+myorder = "I want {} pieces of item number {} for {:.2f} dollars."
+print(myorder.format(quantity, itemno, price))
+
+quantity = 3
+
+itemno = 567
+
+price = 49
+
+myorder = "I want {0} pieces of item number {1} for {2:.2f} dollars."
+
+print(myorder.format(quantity, itemno, price))
+
+==========================================================================
+
+age = 36
+name = "John"
+txt = "His name is {1}. {1} is {0} years old."
+print(txt.format(age, name))
+=========================================================================
+
+#set  set is a collection of unordered unique elements. we can not access by its index.
+
+a set us a collection of unordered ,unchanged and unindexed
+
+note: set is unchangebale but you can remove and add new item
+
+this_is_set = {"apple", "banana", "cherry", "apple"}
+print(this_is_set)
+=================================================
+
+thisset = {"apple", "banana", "cherry"}
+for x in thisset:
+  print(x)
+
+============================
+ add item in set
+
+thisset = {"apple", "banana", "cherry"}
+thisset.add("orange")
+print(thisset)
+====================================
+
+Add elements from tropical into thisset:
+ 
+thisset = {"apple", "banana", "cherry"}
+ 
+tropical = {"pineapple", "mango", "papaya"}
+ 
+ 
+thisset.update(tropical)
+ 
+print(thisset)
+
+==================================================
+
+thisset = {"apple", "banana", "cherry"}
+ 
+mylist = ["kiwi", "orange"]
+ 
+thisset.update(mylist)
+ 
+print(thisset)
+
+#remove item
+thisset = {"apple", "banana", "cherry"}
+ 
+thisset.remove("banana")
+ 
+print(thisset)
+
+=======================================================
+joint set
+
+set1 = {"a", "b", "c"}
+set2 = {1, 2, 3}
+ 
+set3 = set1.union(set2)
+print(set3)
+ 
+ 
+You can use the | operator instead of the union() method, and you will get the same result.
+
+ 
+Example
+ 
+Use | to join two sets:
+ 
+set1 = {"a", "b", "c"}
+set2 = {1, 2, 3}
+ 
+set3 = set1 | set2
+ 
+print(set3)
+===============================
+Remove all elements from the fruits set:
+ 
+fruits = {"apple", "banana", "cherry"}
+ 
+fruits.clear()
+ 
+print(fruits)
+ 
+=========================================
+join a set with tuple 
+
+
+x = {"a", "b", "c"}
+
+y = (1, 2, 3)
+ 
+z = x.union(y)
+
+print(z)
+
+========================================================
+using & join two set
+
+set1 = {"apple", "banana", "cherry"}
+ 
+set2 = {"google", "microsoft", "apple"}
+ 
+ 
+set3 = set1.intersection(set2)
+ 
+print(set3)
+
+==============================================
+
+set1 = {"a", "b", "c"}
+ 
+set2 = {1, 2, 3}
+ 
+set3 = {"John", "Elena"}
+ 
+set4 = {"apple", "bananas", "cherry"}
+ 
+ 
+myset = set1.union(set2, set3, set4)
+ 
+print(myset)
+
+x = {"a", "b", "c"} 
+y = (1, 2, 3)   
+z = x
+
+
+x = {"a", "b", "c"}
+y = (1, 2, 3)
+ 
+z = x.union(y)
+print(z)
+
+set1 = {"apple", "banana", "cherry"}   set2... by N Murugadoss (Guest)
+N Murugadoss (Guest)
+2:16 PM
+set1 = {"apple", "banana", "cherry"}
+ 
+set2 = {"google", "microsoft", "apple"}
+
+
+==================================================================================
+# Create a new set 'num_set' with the elements 0, 1, 2, 3, 4, and 5 using a list:
+ 
+num_set = set([0, 1, 2, 3, 4, 5])
+ 
+Remove an item [ item must be obtained from console ]   from a set if it is present in the set
+ 
+print set before removing
+ 
+pint set after removing
+
+#PROGRAM-----
+
+num_set = set([0, 1, 2, 3, 4, 5])
+
+print("Set before removing:", num_set)
+
+item_to_remove = int(input("Enter the item to remove from the set: "))
+
+if item_to_remove in num_set:
+    num_set.remove(item_to_remove)
+    print("Item removed successfully.")
+else:
+    print("Item not found in the set.")
+
+print("Set after removing:", num_set)
+
+===================================================================================
+to change uper case
+
+chrars = {'a', 'b', 'E', 'f', 'a', 'i', 'o', 'U', 'a'}
+ 
+def change_cases(s):
+    return str(s).upper()
+ 
+ 
+chrars = {'a', 'b', 'E', 'f', 'a', 'i', 'o', 'U', 'a'}
+ 
+result = map(change_cases, chrars)
+ 
+print(set(result))
+
+===========================================================================================
+
+# Create two lists named 'nums1' and 'nums2' containing integer elements
+num1 = [6, 5, 3, 9]
+num2 = [0, 1, 7, 7]
+ 
+Result:
+ 
+[(6, 6), (6, 4), (10, -4), (16, 2)]
+
+----------------
+my program 
+num1 = [6, 5, 3, 9]
+num2 = [0, 1, 7, 7]
+result = [(x + y, x - y) for x, y in zip(num1, num2)]
+print("Result:")
+print(result)
+-------------------------
+sir's program
+# Create two lists named 'nums1' and 'nums2' containing integer elements
+num1 = [6, 5, 3, 9]
+num2 = [0, 1, 7, 7]
+ 
+# Define a function named addition_subtrction that performs addition and subtraction on two numbers
+ 
+def addition_subtrction(x, y):
+    return x + y, x - y
+ 
+# Create two lists named 'nums1' and 'nums2' containing integer elements
+ 
+nums1 = [6, 5, 3, 9]
+nums2 = [0, 1, 7, 7]
+ 
+result = map(addition_subtrction, nums1, nums2)
+ 
+print(list(result))
+=========================================================================
+ 
+
+
+name = ["Elita", "Vitold", "Audovacar"]
+print(list(filter(lambda x: x[0].lower() in ['a','e','i','o','u'], name)))
+-------------------
+names = ["Elita", "Vitold", "Audovacar", "Kerensa", "Ramana", "Iolanda", "Landyn"]
+ 
+ 
+def starts_with_vowel(name):
+    return name[0].lower() in ['a', 'e', 'i', 'o', 'u']
+ 
+vowel_names = filter(starts_with_vowel, names)
+ 
+print(list(vowel_names))
+
+
+===============================================
+
+Write a Python function that filters out elements from a list of strings containing a specific substring using the filter function.
+ 
+strings = ["Red", "Green", "Orange", "White", "Black", "Pink", "Yellow"]
+
+substring = "l"
+
+===================================
+Question 2:
+ 
+Find the Common Friends
+ 
+Now, let’s try a different operation. We will start from the same lists of Paul’s and Tina’s friends:
+ 
+paul_friends = ["Mary", "Tim", "Mike", "Henry"]
+tina_friends = ["Tim", "Susan", "Mary", "Josh"]
+
+paul_friends = ["Mary", "Tim", "Mike", "Henry"]
+tina_friends = ["Tim", "Susan", "Mary", "Josh"]
+paul_set = set(paul_friends)
+tina_set = set(tina_friends)
+common_friends = paul_set.intersection(tina_set)
+
+print("Common Friends:", common_friends)
+
+
+
+Question 3:
+ 
+Find the Basketball Players
+You work at a sports club. The following sets contain the names of players registered to play different sports:
+ 
+football_players = {"Eve", "Tom", "Richard", "Peter"}
+volleyball_players = {"Jack", "Hugh", "Peter", "Sam"}
+basketball_players = {"Eve", "Richard", "Jessica", "Sam", "Michael"}
+How can you obtain a set that includes the players that are only registered to play basketball (i.e. not registered for football or volleyball)?
+ ------------------------------
+
+
+# Sets of players registered for different sports
+football_players = {"Eve", "Tom", "Richard", "Peter"}
+volleyball_players = {"Jack", "Hugh", "Peter", "Sam"}
+basketball_players = {"Eve", "Richard", "Jessica", "Sam", "Michael"}
+
+# Obtain players registered only for basketball using set difference
+basketball_only_players = basketball_players - football_players - volleyball_players
+
+print("Basketball Only Players:", basketball_only_players)
+
+ ============================================================================================================================
+Question 4:
+ part1--->
+
+Count the Votes
+Let’s try counting the number of occurrences in a list. The list below represent the results of 
+a poll where students were asked for their favorite programming language:
+ 
+poll_results = ["Python", "Java", "Javascript", "Python", "Javascript", "Python",
+                "C", "Python", "Python", "C", "Javascript"]
+------------------------------------
+# Poll results
+poll_results = ["Python", "Java", "Javascript", "Python", "Javascript", "Python",
+                "C", "Python", "Python", "C", "Javascript"]
+vote_count = {}
+for language in poll_results:
+    vote_count[language] = vote_count.get(language, 0) + 1
+
+print("Vote Counts:")
+for language, count in vote_count.items():
+    print(f"{language}: {count}")
+--------------
+ 
+part2---->
+Sum the Scores
+Three friends are playing a game, where each player has three rounds to score. 
+At the end, the player whose total score (i.e. the sum of each round) is the highest wins.
+Consider the scores below (formatted as a list of tuples):
+ 
+scores = [('Mike', 10), ('Mike', 8), ('Mike', 6), ('John', 7), ('John', 8), ('John', 5), ('John', 8), ('Tom', 8), ('Tom', 9)]
+ -----------
+
+ 
+Question 5:Calculate the Statistics
+ 
+Given any list of numbers in Python, such as …
+ 
+numbers = [10, 3, 5, 9, 18, 3, 0, 7]
+… write a function that returns a tuple containing the list’s maximum value, sum of values, and mean value.
+
+-----------
+def calculate_statistics(numbers):
+    return max(numbers), sum(numbers), sum(numbers) / len(numbers)
+
+# Example list of numbers
+numbers = [10, 3, 5, 9, 18, 3, 0, 7]
+
+# Calculate statistics
+statistics = calculate_statistics(numbers)
+
+# Print the result
+print("Maximum value:", statistics[0])
+print("Sum of values:", statistics[1])
+print("Mean value:", statistics[2])
+=======================================================================================================
+  
+Question 6:
+ 
+Longest and Shortest Words
+Given the list of words below ..
+ 
+word_list = ["apple", "airplane", "carrot", "elephant", "guitar", "moonlight"]
+ … find the longest and the shortest word in the list.
+---------------------
+# List of words
+word_list = ["apple", "airplane", "carrot", "elephant", "guitar", "moonlight"]
+
+# Find the longest and shortest words
+longest_word = max(word_list, key=len)
+shortest_word = min(word_list, key=len)
+
+# Print the results
+print("Longest word:", longest_word)
+print("Shortest word:", shortest_word)
+=============================================================================
+ 
+ 
+Question 7:
+ 
+Filter a List by Frequency
+Given a list of numbers …
+ 
+number_list = [5, 8, 2, 7, 3, 5, 6, 9, 2, 4, 8, 7, 1, 5, 3]
+ 
+… create a new list containing only the numbers that occur at least three times in the list.
+---------------
+# List of numbers
+number_list = [5, 8, 2, 7, 3, 5, 6, 9, 2, 4, 8, 7, 1, 5, 3]
+
+# Count the occurrences of each number
+number_counts = {}
+for number in number_list:
+    number_counts[number] = number_counts.get(number, 0) + 1
+
+# Create a new list containing numbers that occur at least three times
+result = [number for number, count in number_counts.items() if count >= 3]
+
+print("Numbers that occur at least three times:", result)
+================================================================================
+ 
+ 
+Question 8:
+ 
+The Second-Best Score
+ 
+You’re given a list of students’ scores in no particular order:
+ 
+exam_results = [23, 78, 96, 32, 53, 67, 23, 98, 33, 38, 45, 39, 86, 12, 43, 45]
+ 
+Find the second-highest score in the list.
+-------------------------------------
+# List of scores
+exam_results = [23, 78, 96, 32, 53, 67, 23, 98, 33, 38, 45, 39, 86, 12, 43, 45]
+
+# Sort the list in descending order
+sorted_results = sorted(exam_results, reverse=True)
+
+# Find the second-highest score
+second_highest_score = sorted_results[1]
+
+print("Second-highest score:", second_highest_score)
+=============================================================================
+ 
+Question 9: Check If a List Is Symmetrical
+Given the lists of numbers below …
+ 
+list_one = [1, 2, 3, 2, 1]
+list_two = [1, 1, 2, 2, 3]
+ 
+… create a function that returns whether a list is symmetrical. 
+In this case, a symmetrical list is a list that remains the same after it is reversed – 
+i.e. it’s the same backwards and forwards.
+
+x=[1,2,3,2,1]
+y=x[::-1]
+if x==y : 
+   print("Symmetrical ")
+else:
+   print("Not Symmetrical")
+has context menu
+ 
+ ============================================================
+Problem 10:
+ 
+Sorting a Mixed List
+Imagine you have a list with mixed data types: strings, integers, and floats:
+ 
+mixed_list = ["apple", 5, 3.14, "banana", 7, 2.5, "orange", 10, 1.618, "grape"]
+Typically, you wouldn’t be able to sort this list, since Python cannot compare strings to numbers. However, writing a custom sorting function can help you sort this list.
+ 
+Create a function that sorts the mixed list above using the following logic:
+ 
+If the element is a string, the length of the string is used for sorting.
+If the element is a number, the number itself is used.
+
+
+

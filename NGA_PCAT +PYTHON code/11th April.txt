@@ -1,0 +1,388 @@
+11th April
+=============
+=============
+
+Error handling
+
+no one can claim.their programs execute always. there some bugs ,but not revealed
+IBM maingframe system came to business since 1950's .before it was used only for research purpose.
+1960s, 1970s, 1980s, 1990 some one from australia told that these system will not execute when year 1st jan 2000.
+
+dd-mm-yy: ->dd-mm-yyyy
+
+# Error comes from different ways
+ 1 HUMAM ERROR 
+ 2 HARDWARE FAILURE
+ 3 APPLICATION FAILURE
+
+we run program ,due to some app failure ,program gets terminated abnormally.
+
+As a program, due to some app failure ,program gets terminated abnormally.
+we try to each error and show proper error msgs and exit from the program rather than termination.
+
+try:
+   this block try to catch errors.
+
+except:
+    handled by this block when error comes
+
+else:
+   this block is handled if no errors.
+
+finally
+    this block is handled irrespective errors or not
+
+program:
+
+try:
+  print(x)
+except:
+  print("An exception occurred")
+------------------------------------
+try:
+  print("Hello")
+except:
+  print("Something went wrong")
+else:
+  print("Nothing went wrong")
+ -------------------
+
+file
+  open file [can not , can]
+
+
+finally 
+  f
+    
+
+raise an expression 
+as a python developer you can choode to throw an exception if a condition occurs .
+to throw (or raise ) an exception ,use the raise keyword
+
+example 
+raise an error and stop the rofram if x is lower than 0:
+
+x=-1
+if x<0:
+   raise Exception ("sorry ,no number below zero")
+=================================================================
+
+result =x/y
+
+1. wrp a pyth0n to handle a zerodivisionError exception 
+
+
+def divide_numbers(x, y):
+ 
+    try:
+        result = x / y
+        print("Result:", result)
+    except ZeroDivisionError:
+        print("The division by zero operation is not allowed.")
+ 
+numerator = 100
+denominator =0
+divide_numbers(numerator, denominator)
+=============================================================
+
+1. wrp a program that prompts the user to input an interger and raises a valueError exceotion if the input is not a vaid integeer.
+
+def get_integer_input(prompt):
+
+    try:
+
+        value = int(input(prompt))
+
+        return value
+
+    except ValueError:
+
+        print("Error: Invalid input, input a valid integer.")
+ 
+n = get_integer_input("Input an integer: ")
+
+print("Input value:", n)
+===============================================================
+
+2. Write a Python program that prompts the user to input two numbers and raises a TypeError exception if the inputs are not numerical.
+
+def get_numeric_input(prompt):
+ 
+    while True:
+        try:
+            value = float(input(prompt))
+            return value
+        except ValueError:
+            print("Error: Invalid input. Please Input a valid number.")
+ 
+n1 = get_numeric_input("Input the first number: ")
+n2 = get_numeric_input("Input the second number: ")
+result = n1 * n2
+print("Product of the said two numbers:", result)
+============================================================================
+
+3. Write a Python program that prompts the user to input a numbers and handles a KeyboardError  exception if the user cancel the input.
+
+ 
+
+4. Write a Python program that executes division and handle an ArithmeticError ecception ifther is an arithmetic error  
+   
+    ther base two class for those bulit 
+
+def division(dividend, divisor):
+    try:
+        result = dividend / divisor
+        print("Result:", result)
+    except ArithmeticError:
+        print("Error: Arithmetic error occurred!")
+ 
+ 
+dividend = float(input("Input the dividend: "))
+divisor = float(input("Input the divisor: "))
+division(dividend, divisor)
+ ========================================================
+NAME = 'DOSS'
+print("size =" length(name))
+,45,
+marks=[23,45,
+
+9. Write a Python program that opens a file and handles a UnicodeDecodeError exception if there is an encoding issue.
+
+
+# Define a function named 'open_file' that takes 'filename' as a parameter.
+def open_file(filename):
+    # Prompt the user to input the file encoding (ASCII, UTF-16, UTF-8) and store it in the 'encoding' variable.
+    encoding = input("Input the encoding (ASCII, UTF-16, UTF-8) for the file: ")
+    try:
+        # Attempt to open the file with the specified encoding in read mode and use the 'with' statement for automatic file closing.
+        with open(filename, 'r', encoding=encoding) as file:
+            # Read the contents of the file and store it in the 'contents' variable.
+            contents = file.read()
+            # Print the contents of the file.
+            print("File contents:")
+            print(contents)
+    except UnicodeDecodeError:
+        # Handle the exception if a UnicodeDecodeError occurs during file reading due to an encoding issue.
+        print("Error: Encoding issue occurred while reading the file.")
+
+# Usage
+
+# Prompt the user to input the file name and store it in the 'file_name' variable.
+file_name = input("Input the file name: ")
+# Call the 'open_file' function with the provided file name to open and read the file with the specified encoding.
+open_file(file_name) 
+
+
+10. Write a Python program that executes a list operation and handles an AttributeError exception if the attribute does not exist.
+
+Click me to see the sample solution
+
+
+# Define a function named 'test_list_operation' that takes 'nums' as a parameter.
+def test_list_operation(nums):
+    try:
+        # Attempt to access the 'length' attribute of the 'nums' list and assign it to 'r'.
+        r = len(nums)  # Trying to access the length attribute
+        # Print the length of the list 'nums'.
+        print("Length of the list:", r)
+    except AttributeError:
+        # Handle the exception if an AttributeError occurs when attempting to access the 'length' attribute.
+        print("Error: The list does not have a 'length' attribute.")
+
+# Create a list 'nums' containing integer values.
+nums = [1, 2, 3, 4, 5]
+# Call the 'test_list_operation' function with the 'nums' list as a parameter to check for the 'length' attribute.
+test_list_operation(nums)
+
+------------------------------------
+
+# text files manipulation
+# writig into a text file
+ 
+f1=open("D://doss.txt" ,"w")  # w mode erases  previous contents it it exist
+name=input("Enter name  ")
+f1.write(name)
+age=input("Enter age  ")
+f1.write(" " + age)
+
+----------------------------
+
+#to read a file 
+f1 = open("D:\WIPRO TRAINING\10th april.txt")
+for i in f1:
+    print(i)
+'''
+f1=open("D:\WIPRO TRAINING\10th april.txt" , "w")
+
+for i in range(3):
+     name=input("Enter name  ")
+     f1.write(name)
+     age=input("Enter age  ")
+     f1.write(" " + age)
+     f1.write("\n")
+
+'''''
+how to read these text
+
+f1=open("D:\WIPRO TRAINING\10th april.txt" , "w")
+
+for i f1:
+  print(i)
+
+---------------------------------------------------------------
+write a pythin script to write and read the file content 10th april.txt
+ 
+option 1 : Read id , name and marks for 3 students and write into doss.txt
+ 
+option 2 : read  all contents doss.txt and display
+ 
+option 3 : exit
+ 
+ 
+while True:
+    print("Options:")
+    print("1. Read id, name, and marks for 3 students and write into doss.txt")
+    print("2. Read all contents of doss.txt and display")
+    print("3. Exit")
+
+    choice = input("Enter your choice (1, 2, or 3): ")
+
+    if choice == '1':
+        with open("doss.txt", "w") as file:
+            for _ in range(3):
+                student_id = input("Enter student ID: ")
+                name = input("Enter student name: ")
+                marks = input("Enter marks: ")
+                file.write(f"{student_id}, {name}, {marks}\n")
+        print("Data written to doss.txt")
+
+    elif choice == '2':
+        try:
+            with open("doss.txt", "r") as file:
+                print("Contents of doss.txt:")
+                print(file.read())
+        except FileNotFoundError:
+            print("doss.txt not found. No data to display.")
+
+    elif choice == '3':
+        print("Exiting...")
+        break
+
+    else:
+        print("Invalid choice. Please enter 1, 2, or 3.")
+
+=================================================================
+
+
+
+str="Doss 45 55"
+name,m1,m2=str.split(" ")
+print(name)
+print(m1)
+print(m2)
+
+
+str="Doss,45,55"
+name,m1,m2=str.split(",")
+print(name)
+print(m1)
+print(m2)
+
+=======================================================
+
+[1:57 PM] N Murugadoss
+
+
+Lab 1:
+ 
+Task 1 :Write a python script to read id,name,maths and science marks from the console for  5 students and write
+
+        into text file marks.txt. Here the columns are separated  by spaces.
+ 
+Task 2 :Write a python script to read  marks.txt. Find total and averagee of maths and science and 
+
+        display  the output in the console as per format  given below
+ 
+        *******************************************************************
+
+        id   name    maths   science     Total   average
+
+        *******************************************************************
+
+        10   Doss     70        80       150     75.00
+
+        ******************************************************************
+
+        11   Aditya   80        80        160    80
+
+        *******************************************************************
+
+
+=open("marks.txt","w")
+for i in range(3):
+    id=input("Enter id   ")
+    name=input("Enter name  ")
+    maths=input("Maths Marks")
+    scie=input("Science Marks")
+    f.write(id+" "+name+" "+maths+" "+scie)
+    f.write("\n")
+f.close()
+ 
+ 
+f=open("marks.txt")
+print("*************************************")
+print("Id  Name  Math  Scie  Total  Avg     "
+print("*************************************")
+ 
+for rec in f:
+  id,name,maths,scie=rec.split(" ")
+  total=int(maths)+int(scie)
+  avg=total/2.0
+  print(id,name,maths,scie,total,avg)
+ 
+  print("*************************************")
+ 
+ 
+f.close()
+
+
+
+
+[3:45 PM] N Murugadoss
+Durga:10
+Ravi:20
+Shiva:30
+Pavan:40
+[3:45 PM] N Murugadoss
+Durga:10
+
+Ravi:20
+
+Shiva:30
+
+Pavan:40
+[3:46 PM] N Murugadoss
+values=0
+try:
+	f=open('abc.txt','r')
+	content=f.readlines()
+	for line in content:
+		values+=float(line.split(':')[1])
+	f.close()
+except Exception:
+	print('Unable to open the file')
+print(values)
+ 
+
+
+
+
+
+
+
+
+
+
+the try block lets you test a block of code for errors.
+The except block lets you handle the error.
+The finally block lets you execute code, regardess of the result of the try -and except blocks 

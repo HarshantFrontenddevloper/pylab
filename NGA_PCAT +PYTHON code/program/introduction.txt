@@ -1,0 +1,28 @@
+[3:04 PM] N Murugadoss
+range(5):
+ 
+default initial value is  0
+
+default increment is      1
+
+final value is            5-1=4
+ 
+It goes 0,1,2,3,4
+ 
+ 
+range(1,10):
+
+initial value is 1
+
+final value   is 10-1=9
+
+increment     is 1
+ 
+range(1,10,2):
+
+intial value is 1
+
+final value is 10-1=9
+
+increment is 2
+ 
